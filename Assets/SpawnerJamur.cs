@@ -5,15 +5,13 @@ using UnityEngine;
 public class SpawnerJamur : MonoBehaviour
 {
     [SerializeField] GameObject[] jamur;
-    [SerializeField] float timeToSpawn;
-    [SerializeField]List<GameObject> jamurList;
+    public float timeToSpawn;
 
     Vector2 pos;
-    bool posValid;
     float minX, maxX, minY, maxY;
     float spawn;
 
-    void Start()
+    void Awake()
     {
         Vector2 bounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
 
@@ -26,17 +24,20 @@ public class SpawnerJamur : MonoBehaviour
     void Update()
     {
         pos = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
-
         int objIndex = Random.Range(0, jamur.Length);
 
         spawn -= Time.deltaTime;
-
-        if(spawn <= 0 && posValid)
+        if(spawn <= 0)
         {
             GameObject obj = Instantiate(jamur[objIndex], pos, Quaternion.identity) as GameObject;
             obj.transform.parent = transform;
+
+            //MushroomScript newMush = obj.GetComponent<MushroomScript>();
+            //newMush.jamurType = objIndex;
+            
             spawn = timeToSpawn;
-            jamurList.Add(obj);
         }
+
+
     }
 }
