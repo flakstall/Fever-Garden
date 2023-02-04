@@ -32,7 +32,7 @@ public class SpawnerJamur : MonoBehaviour
 
         if(spawn <= 0)
         {
-            GameObject obj = Instantiate(jamur[objIndex], pos, Quaternion.identity);
+            GameObject obj = Instantiate(jamur[objIndex], pos, Quaternion.identity) as GameObject;
             obj.transform.parent = transform;
             spawn = timeToSpawn;
         }
