@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -6180577121751415194}
   - component: {fileID: -2812535586025456477}
   - component: {fileID: 6239541084297996574}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Jamur 1
   m_TagString: Mushroom
   m_Icon: {fileID: 0}
@@ -115,7 +115,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8e6ccdc9f592e4f9c1198c5afce2c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jamur: {fileID: 149763572847027061}
+  scanRadius: 1
+  filterMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!50 &6239541084297996574
 Rigidbody2D:
   serializedVersion: 4

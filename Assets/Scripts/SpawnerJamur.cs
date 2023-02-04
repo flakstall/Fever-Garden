@@ -9,16 +9,18 @@ public class SpawnerJamur : MonoBehaviour
 
     Vector2 pos;
     float minX, maxX, minY, maxY;
-    float spawn;
+    public float spawn;
 
     void Awake()
     {
         Vector2 bounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
 
-        minX = -bounds.x;
-        maxX = bounds.x;
-        minY = -bounds.y;
-        maxY = bounds.y;
+        minX = -bounds.x + 0.75f;
+        maxX = bounds.x - 0.75f;
+        minY = -bounds.y / 2;
+        maxY = bounds.y - 0.75f;
+
+        Debug.Log(minY);
     }
 
     void Update()
@@ -31,13 +33,7 @@ public class SpawnerJamur : MonoBehaviour
         {
             GameObject obj = Instantiate(jamur[objIndex], pos, Quaternion.identity) as GameObject;
             obj.transform.parent = transform;
-            MushroomScript newMush = obj.GetComponent<MushroomScript>();
-            newMush.jamurType = objIndex;
-            newMush.im = gameObject.GetComponent<Interaction>();
-
             spawn = timeToSpawn;
         }
-
-
     }
 }
