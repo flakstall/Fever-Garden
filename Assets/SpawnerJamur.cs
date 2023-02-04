@@ -6,8 +6,10 @@ public class SpawnerJamur : MonoBehaviour
 {
     [SerializeField] GameObject[] jamur;
     [SerializeField] float timeToSpawn;
+    [SerializeField]List<GameObject> jamurList;
 
     Vector2 pos;
+    bool posValid;
     float minX, maxX, minY, maxY;
     float spawn;
 
@@ -29,11 +31,12 @@ public class SpawnerJamur : MonoBehaviour
 
         spawn -= Time.deltaTime;
 
-        if(spawn <= 0)
+        if(spawn <= 0 && posValid)
         {
             GameObject obj = Instantiate(jamur[objIndex], pos, Quaternion.identity) as GameObject;
             obj.transform.parent = transform;
             spawn = timeToSpawn;
+            jamurList.Add(obj);
         }
     }
 }
