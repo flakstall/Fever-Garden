@@ -2,21 +2,17 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class MushroomScript : MonoBehaviour
 {
-    CircleCollider2D coll;
-
-    void Start()
+    [SerializeField] GameObject jamur;
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        coll= GetComponent<CircleCollider2D>();
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(coll.gameObject.tag == "Mushroom")
+        if(collision.tag == "Mushroom")
         {
-            Debug.Log("overlapping");
-            Destroy(coll.gameObject);
+            Destroy(collision.gameObject);
+            GameObject obj = Instantiate(jamur, this.transform.position, Quaternion.identity) as GameObject;
         }
     }
 }

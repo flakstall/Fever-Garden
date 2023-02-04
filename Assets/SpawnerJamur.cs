@@ -23,7 +23,6 @@ public class SpawnerJamur : MonoBehaviour
 
     void Update()
     {
-
         pos = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
 
         int objIndex = Random.Range(0, jamur.Length);
