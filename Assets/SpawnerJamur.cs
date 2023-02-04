@@ -36,6 +36,7 @@ public class SpawnerJamur : MonoBehaviour
             MushroomScript newMush = obj.GetComponent<MushroomScript>();
             newMush.jamurType = objIndex;
             
+
             spawn = timeToSpawn;
 
             //obj. = objIndex;

@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class Interaction : MonoBehaviour
 {
-     private Camera camera;
+     //private Camera camera;
      public string toolPake;
+     /*
+     Penyiram
+     Palu
+     Gunting
+     Glove
+     */
 
     void Start() {
-        camera = Camera.main;
+       // camera = Camera.main;
     }
 
     // Update is called once per frame
