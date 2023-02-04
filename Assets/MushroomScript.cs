@@ -10,6 +10,22 @@ public class MushroomScript : MonoBehaviour
     public LayerMask filterMask;
     private SpawnerJamur sj;
     Collider2D checkCollider;
+    
+    [SerializeField] GameObject jamur;
+
+    public int jamurType;
+    /*
+    0: Jamur Enoki
+    1: Jamur Payung
+    2: Jamur Kuping
+    */
+
+    public int keGunting = 0;
+    public int kePalu = 0;
+
+    public Interaction im;
+
+    
     void Awake()
     {
         sj = FindObjectOfType<SpawnerJamur>();
@@ -22,10 +38,42 @@ public class MushroomScript : MonoBehaviour
             Destroy(checkCollider.gameObject);
             sj.timeToSpawn = 0;
         }
+
+        switch(jamurType) {
+            case 0:
+                cekGunting();
+                break;
+            case 1:
+                cekPalu();
+                break;
+            case 2:
+                break;
+        }
     }
     protected void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, scanRadius);
+
+    }
+
+    private void cekGunting() {
+        if (keGunting > 0){
+            Destroy(gameObject);
+        }
+    }
+
+    private void cekPalu() {
+        if (kePalu > 2) {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnMouseDown() {
+        if (im.toolPake == "Gunting") {
+            keGunting++;
+        } else if (im.toolPake == "Palu") {
+            kePalu++;
+        }
     }
 }

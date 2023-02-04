@@ -31,10 +31,10 @@ public class SpawnerJamur : MonoBehaviour
         {
             GameObject obj = Instantiate(jamur[objIndex], pos, Quaternion.identity) as GameObject;
             obj.transform.parent = transform;
+            MushroomScript newMush = obj.GetComponent<MushroomScript>();
+            newMush.jamurType = objIndex;
+            newMush.im = gameObject.GetComponent<Interaction>();
 
-            //MushroomScript newMush = obj.GetComponent<MushroomScript>();
-            //newMush.jamurType = objIndex;
-            
             spawn = timeToSpawn;
         }
 
