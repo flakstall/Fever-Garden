@@ -33,7 +33,12 @@ public class SpawnerJamur : MonoBehaviour
         {
             GameObject obj = Instantiate(jamur[objIndex], pos, Quaternion.identity) as GameObject;
             obj.transform.parent = transform;
+            MushroomScript newMush = obj.GetComponent<MushroomScript>();
+            newMush.jamurType = objIndex;
+            
             spawn = timeToSpawn;
+
+            //obj. = objIndex;
         }
     }
 }
