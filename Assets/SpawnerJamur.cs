@@ -35,7 +35,7 @@ public class SpawnerJamur : MonoBehaviour
             obj.transform.parent = transform;
             MushroomScript newMush = obj.GetComponent<MushroomScript>();
             newMush.jamurType = objIndex;
-            
+            newMush.im = gameObject.GetComponent<Interaction>();
 
             spawn = timeToSpawn;
 

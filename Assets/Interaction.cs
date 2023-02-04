@@ -15,6 +15,8 @@ public class Interaction : MonoBehaviour
 
     void Start() {
        // camera = Camera.main;
+       //toolPake = "Gunting";
+       toolPake = "Palu";
     }
 
     // Update is called once per frame

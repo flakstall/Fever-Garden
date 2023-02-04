@@ -15,8 +15,8 @@ public class MushroomScript : MonoBehaviour
     2: Jamur Kuping
     */
 
-    private int keGunting = 0;
-    private int kePalu = 0;
+    public int keGunting = 0;
+    public int kePalu = 0;
 
     public Interaction im;
 
